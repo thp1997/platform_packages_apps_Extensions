@@ -47,7 +47,8 @@ import android.view.View;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
-import com.android.settings.Utils;
+//import com.android.settings.Utils;
+import org.aospextended.extensions.Utils;
 import org.aospextended.extensions.preference.CustomSeekBarPreference;
 
 import com.android.settings.smartnav.ActionFragment;
@@ -93,6 +94,13 @@ public class Buttons extends ActionFragment
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        final String KEY_DEVICE_PART = "device_part";
+        final String KEY_DEVICE_PART_PACKAGE_NAME = "com.thht.settings.device";
+         // XiaomiParts
+        if (!Utils.isPackageInstalled(getActivity(), KEY_DEVICE_PART_PACKAGE_NAME)) {
+           getPreferenceScreen().removePreference(findPreference(KEY_DEVICE_PART));
+        }
 
         addPreferencesFromResource(R.xml.buttons);
 

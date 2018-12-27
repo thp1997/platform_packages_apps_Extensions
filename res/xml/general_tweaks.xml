@@ -37,4 +37,18 @@
         android:fragment="org.aospextended.extensions.ScreenStateToggles" />
       </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="device_part_opt"
+        android:title="@string/device_part_opt">
+         <Preference
+            android:key="device_part"
+            android:persistent="false"
+            android:title="@string/device_part_title">
+            <intent android:action="android.intent.action.MAIN"
+                 android:targetPackage="com.thht.settings.device"
+                 android:targetClass="com.thht.settings.device.DeviceSettings"/>
+        </Preference>
+    </PreferenceCategory>
+
+
 </PreferenceScreen>
